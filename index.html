@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="DineFlow — The AI-powered luxury restaurant management platform. Elevate every dining experience with intelligent automation, smart menus, and real-time analytics." />
+  <title>DineFlow — Luxury AI Restaurant Management</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== PRELOADER ===== -->
+  <div id="preloader">
+    <div class="preloader-content">
+      <div class="preloader-logo">
+        <span class="logo-d">D</span><span class="logo-rest">ineFlow</span>
+      </div>
+      <div class="preloader-bar"><div class="preloader-fill"></div></div>
+      <p class="preloader-tagline">Crafting your experience…</p>
+    </div>
+  </div>
+
+  <!-- ===== CURSOR ===== -->
+  <div id="cursor-dot"></div>
+  <div id="cursor-ring"></div>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav id="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <div class="logo-icon">✦</div>
+        <span class="logo-text">DineFlow</span>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#hero" class="nav-link">Home</a></li>
+        <li><a href="#features" class="nav-link">Features</a></li>
+        <li><a href="#menu" class="nav-link">Menu</a></li>
+        <li><a href="#dashboard" class="nav-link">Dashboard</a></li>
+        <li><a href="#analytics" class="nav-link">Analytics</a></li>
+        <li><a href="#loyalty" class="nav-link">Loyalty</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="btn-ghost" id="reserveNavBtn">Reserve Table</button>
+        <button class="btn-primary" id="demoBtn">Get Demo</button>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section id="hero" class="hero-section">
+    <div class="hero-bg">
+      <div class="hero-orb orb-1"></div>
+      <div class="hero-orb orb-2"></div>
+      <div class="hero-orb orb-3"></div>
+      <div class="hero-particles" id="heroParticles"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        <span>AI-Powered Restaurant Intelligence</span>
+      </div>
+      <h1 class="hero-title">
+        Where Culinary Art<br/>
+        <span class="hero-gradient">Meets Intelligence</span>
+      </h1>
+      <p class="hero-subtitle">
+        DineFlow transforms every dining experience with predictive AI, smart automation, 
+        and real-time insights — from the kitchen to the customer's heart.
+      </p>
+      <div class="hero-actions">
+        <button class="btn-hero-primary" id="exploreBtn">
+          <span>Explore Platform</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+        <button class="btn-hero-ghost" id="watchDemo">
+          <div class="play-icon">▶</div>
+          <span>Watch Demo</span>
+        </button>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-number" data-target="2400">0</span><span class="stat-suffix">+</span>
+          <span class="stat-label">Restaurants</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="98">0</span><span class="stat-suffix">%</span>
+          <span class="stat-label">Satisfaction</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="40">0</span><span class="stat-suffix">%</span>
+          <span class="stat-label">Revenue Lift</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="12">0</span><span class="stat-suffix">M+</span>
+          <span class="stat-label">Orders Processed</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-dashboard-preview">
+        <div class="preview-header">
+          <div class="preview-dots">
+            <span></span><span></span><span></span>
+          </div>
+          <span class="preview-title">Live Dashboard</span>
+          <div class="preview-live"><span class="live-dot"></span>LIVE</div>
+        </div>
+        <div class="preview-body">
+          <div class="preview-metric">
+            <span class="metric-label">Active Orders</span>
+            <span class="metric-value" id="liveOrders">24</span>
+          </div>
+          <div class="preview-metric">
+            <span class="metric-label">Avg Wait</span>
+            <span class="metric-value">12<small>min</small></span>
+          </div>
+          <div class="preview-metric">
+            <span class="metric-label">Revenue Today</span>
+            <span class="metric-value">$8.4<small>k</small></span>
+          </div>
+          <div class="preview-chart">
+            <div class="mini-bars">
+              <div class="mini-bar" style="height:40%"></div>
+              <div class="mini-bar" style="height:65%"></div>
+              <div class="mini-bar" style="height:55%"></div>
+              <div class="mini-bar" style="height:80%"></div>
+              <div class="mini-bar" style="height:70%"></div>
+              <div class="mini-bar" style="height:90%"></div>
+              <div class="mini-bar active" style="height:75%"></div>
+            </div>
+          </div>
+          <div class="preview-orders">
+            <div class="mini-order">
+              <div class="order-dot green"></div>
+              <span>Table 4 — Truffle Risotto</span>
+              <span class="order-time">2m</span>
+            </div>
+            <div class="mini-order">
+              <div class="order-dot amber"></div>
+              <span>Table 9 — Wagyu Steak</span>
+              <span class="order-time">8m</span>
+            </div>
+            <div class="mini-order">
+              <div class="order-dot red"></div>
+              <span>Table 2 — Lobster Bisque</span>
+              <span class="order-time">14m</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="floating-card card-ai">
+        <div class="fc-icon">🤖</div>
+        <div>
+          <div class="fc-title">AI Suggestion</div>
+          <div class="fc-sub">Peak hour in 45 min</div>
+        </div>
+      </div>
+      <div class="floating-card card-revenue">
+        <div class="fc-icon">📈</div>
+        <div>
+          <div class="fc-title">+23% Revenue</div>
+          <div class="fc-sub">vs last Friday</div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <div class="scroll-line"></div>
+      <span>Scroll to explore</span>
+    </div>
+  </section>
+
+  <!-- ===== FOOD SHOWCASE ===== -->
+  <section id="showcase" class="showcase-section">
+    <div class="section-header centered">
+      <div class="section-tag">Animated Showcase</div>
+      <h2 class="section-title">A Feast for the Eyes</h2>
+      <p class="section-sub">Every dish, beautifully presented and intelligently managed.</p>
+    </div>
+    <div class="showcase-track-wrapper">
+      <div class="showcase-track" id="showcaseTrack">
+        <!-- Cards injected by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FEATURES SECTION ===== -->
+  <section id="features" class="features-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Platform Features</div>
+        <h2 class="section-title">Everything Your Restaurant Needs</h2>
+        <p class="section-sub">A complete ecosystem powering every touchpoint of the dining experience.</p>
+      </div>
+      <div class="features-grid" id="featuresGrid">
+        <!-- Feature cards injected by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DIGITAL MENU SECTION ===== -->
+  <section id="menu" class="menu-section">
+    <div class="container">
+      <div class="section-header centered">
+        <div class="section-tag">QR Digital Menu</div>
+        <h2 class="section-title">Interactive Menu Experience</h2>
+        <p class="section-sub">Guests scan a QR code and instantly access a beautifully curated digital menu with AI-powered recommendations.</p>
+      </div>
+      <div class="menu-layout">
+        <div class="menu-sidebar">
+          <div class="qr-card">
+            <div class="qr-code" id="qrDisplay">
+              <div class="qr-inner">
+                <div class="qr-grid" id="qrGrid"></div>
+              </div>
+            </div>
+            <p class="qr-label">Scan to View Menu</p>
+            <p class="qr-sub">Table 7 — Window Seat</p>
+          </div>
+          <div class="menu-categories" id="menuCategories">
+            <button class="cat-btn active" data-cat="all">All</button>
+            <button class="cat-btn" data-cat="starters">Starters</button>
+            <button class="cat-btn" data-cat="mains">Mains</button>
+            <button class="cat-btn" data-cat="desserts">Desserts</button>
+            <button class="cat-btn" data-cat="drinks">Drinks</button>
+          </div>
+          <div class="ai-recommend-box">
+            <div class="ai-rec-header">
+              <span class="ai-icon">✨</span>
+              <span>AI Picks for You</span>
+            </div>
+            <p class="ai-rec-sub">Based on your last 3 visits & seasonal preferences</p>
+            <div class="ai-tags">
+              <span class="ai-tag">Truffle Pasta</span>
+              <span class="ai-tag">Wagyu Steak</span>
+              <span class="ai-tag">Mango Sorbet</span>
+            </div>
+          </div>
+        </div>
+        <div class="menu-grid" id="menuGrid">
+          <!-- Menu items injected by JS -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== RESERVATION SYSTEM ===== -->
+  <section id="reservation" class="reservation-section">
+    <div class="container">
+      <div class="reservation-layout">
+        <div class="reservation-info">
+          <div class="section-tag">Table Reservations</div>
+          <h2 class="section-title">Reserve Your Perfect Table</h2>
+          <p class="section-sub">AI-optimized seating ensures every guest gets the perfect experience. Smart reminders, dietary tracking, and preference memory included.</p>
+          <div class="res-features">
+            <div class="res-feat">
+              <div class="res-feat-icon">🪑</div>
+              <div>
+                <strong>Smart Seating</strong>
+                <p>AI matches table to party size and preference</p>
+              </div>
+            </div>
+            <div class="res-feat">
+              <div class="res-feat-icon">📱</div>
+              <div>
+                <strong>SMS Reminders</strong>
+                <p>Automated confirmations & day-of reminders</p>
+              </div>
+            </div>
+            <div class="res-feat">
+              <div class="res-feat-icon">🍽️</div>
+              <div>
+                <strong>Dietary Memory</strong>
+                <p>Guest preferences stored for next visit</p>
+              </div>
+            </div>
+            <div class="res-feat">
+              <div class="res-feat-icon">⏱️</div>
+              <div>
+                <strong>Wait Prediction</strong>
+                <p>Real-time estimated wait times</p>
+              </div>
+            </div>
+          </div>
+          <div class="table-map" id="tableMap">
+            <!-- Table map injected by JS -->
+          </div>
+        </div>
+        <div class="reservation-form-card">
+          <h3 class="form-title">Make a Reservation</h3>
+          <form id="reservationForm" class="res-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="resName">Full Name</label>
+                <input type="text" id="resName" placeholder="John Doe" required />
+              </div>
+              <div class="form-group">
+                <label for="resEmail">Email</label>
+                <input type="email" id="resEmail" placeholder="john@example.com" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="resPhone">Phone</label>
+                <input type="tel" id="resPhone" placeholder="+1 555 0100" />
+              </div>
+              <div class="form-group">
+                <label for="resGuests">Guests</label>
+                <select id="resGuests">
+                  <option>1 Guest</option>
+                  <option selected>2 Guests</option>
+                  <option>3 Guests</option>
+                  <option>4 Guests</option>
+                  <option>5+ Guests</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="resDate">Date</label>
+                <input type="date" id="resDate" required />
+              </div>
+              <div class="form-group">
+                <label for="resTime">Time</label>
+                <select id="resTime">
+                  <option>12:00 PM</option>
+                  <option>12:30 PM</option>
+                  <option>1:00 PM</option>
+                  <option>7:00 PM</option>
+                  <option selected>7:30 PM</option>
+                  <option>8:00 PM</option>
+                  <option>8:30 PM</option>
+                  <option>9:00 PM</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="resOccasion">Special Occasion</label>
+              <select id="resOccasion">
+                <option value="">No special occasion</option>
+                <option>Birthday</option>
+                <option>Anniversary</option>
+                <option>Business Dinner</option>
+                <option>Proposal</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="resNotes">Dietary Preferences / Notes</label>
+              <textarea id="resNotes" placeholder="Vegetarian, gluten-free, nut allergy…" rows="3"></textarea>
+            </div>
+            <div class="wait-prediction" id="waitPrediction">
+              <span class="wait-icon">⏱️</span>
+              <span>Estimated wait: <strong>~0 min</strong> at your selected time</span>
+            </div>
+            <button type="submit" class="btn-form-submit">
+              <span>Confirm Reservation</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DASHBOARD SECTION ===== -->
+  <section id="dashboard" class="dashboard-section">
+    <div class="container">
+      <div class="section-header centered">
+        <div class="section-tag">Elegant Dashboard</div>
+        <h2 class="section-title">Command Your Restaurant</h2>
+        <p class="section-sub">A unified view of every operation — from kitchen to customer — in real time.</p>
+      </div>
+      <div class="dashboard-tabs">
+        <button class="dash-tab active" data-tab="overview" id="tabOverview">Overview</button>
+        <button class="dash-tab" data-tab="kitchen" id="tabKitchen">Kitchen</button>
+        <button class="dash-tab" data-tab="orders" id="tabOrders">Live Orders</button>
+        <button class="dash-tab" data-tab="staff" id="tabStaff">Staff</button>
+        <button class="dash-tab" data-tab="delivery" id="tabDelivery">Delivery</button>
+      </div>
+      <div class="dashboard-body" id="dashboardBody">
+        <!-- Injected by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ANALYTICS SECTION ===== -->
+  <section id="analytics" class="analytics-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Peak-Hour Analytics & AI Forecasting</div>
+        <h2 class="section-title">Data-Driven Dining Intelligence</h2>
+        <p class="section-sub">Predict demand, optimize staffing, and maximize revenue with AI-powered insights.</p>
+      </div>
+      <div class="analytics-grid">
+        <div class="analytics-main">
+          <div class="analytics-card big-chart-card">
+            <div class="ac-header">
+              <div>
+                <div class="ac-title">Revenue Forecast</div>
+                <div class="ac-sub">AI demand prediction — next 7 days</div>
+              </div>
+              <div class="ac-controls">
+                <button class="ac-btn active" id="forecastWeek">Week</button>
+                <button class="ac-btn" id="forecastMonth">Month</button>
+              </div>
+            </div>
+            <div class="chart-area" id="revenueChart">
+              <!-- SVG chart injected by JS -->
+            </div>
+            <div class="chart-legend">
+              <span class="legend-item"><span class="legend-dot actual"></span>Actual</span>
+              <span class="legend-item"><span class="legend-dot forecast"></span>AI Forecast</span>
+            </div>
+          </div>
+          <div class="analytics-row">
+            <div class="analytics-card peak-card">
+              <div class="ac-title">Peak Hour Heatmap</div>
+              <div class="heatmap-grid" id="heatmapGrid"></div>
+              <div class="heatmap-legend">
+                <span>Low</span>
+                <div class="heatmap-scale"></div>
+                <span>High</span>
+              </div>
+            </div>
+            <div class="analytics-card wait-card">
+              <div class="ac-title">Wait Time Predictor</div>
+              <div class="wait-gauge" id="waitGauge">
+                <svg viewBox="0 0 200 120" width="200" height="120">
+                  <path d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="#f0e6d3" stroke-width="14" stroke-linecap="round"/>
+                  <path id="gaugeFill" d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="url(#gaugeGrad)" stroke-width="14" stroke-linecap="round" stroke-dasharray="251.2" stroke-dashoffset="100"/>
+                  <defs>
+                    <linearGradient id="gaugeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" style="stop-color:#c8a96e"/>
+                      <stop offset="100%" style="stop-color:#8b4513"/>
+                    </linearGradient>
+                  </defs>
+                  <text x="100" y="85" text-anchor="middle" font-size="28" font-weight="700" fill="#2c1810" id="gaugeValue">12</text>
+                  <text x="100" y="105" text-anchor="middle" font-size="11" fill="#8b7355">minutes avg wait</text>
+                </svg>
+              </div>
+              <div class="wait-breakdown" id="waitBreakdown"></div>
+            </div>
+          </div>
+        </div>
+        <div class="analytics-sidebar">
+          <div class="analytics-card demand-card">
+            <div class="ac-title">AI Demand Forecast</div>
+            <div class="demand-items" id="demandItems"></div>
+          </div>
+          <div class="analytics-card cx-card">
+            <div class="ac-title">Customer Experience Score</div>
+            <div class="cx-score">
+              <div class="cx-ring">
+                <svg viewBox="0 0 100 100" width="120" height="120">
+                  <circle cx="50" cy="50" r="40" fill="none" stroke="#f0e6d3" stroke-width="8"/>
+                  <circle cx="50" cy="50" r="40" fill="none" stroke="url(#cxGrad)" stroke-width="8" stroke-linecap="round"
+                    stroke-dasharray="251.2" stroke-dashoffset="25" transform="rotate(-90 50 50)"/>
+                  <defs>
+                    <linearGradient id="cxGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" style="stop-color:#c8a96e"/>
+                      <stop offset="100%" style="stop-color:#8b4513"/>
+                    </linearGradient>
+                  </defs>
+                  <text x="50" y="48" text-anchor="middle" font-size="18" font-weight="700" fill="#2c1810">9.4</text>
+                  <text x="50" y="62" text-anchor="middle" font-size="8" fill="#8b7355">/10</text>
+                </svg>
+              </div>
+              <div class="cx-metrics" id="cxMetrics"></div>
+            </div>
+          </div>
+          <div class="analytics-card floating-analytics">
+            <div class="ac-title">Live Insights</div>
+            <div class="insights-list" id="insightsList"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LOYALTY PROGRAM ===== -->
+  <section id="loyalty" class="loyalty-section">
+    <div class="container">
+      <div class="loyalty-layout">
+        <div class="loyalty-info">
+          <div class="section-tag">Loyalty Program</div>
+          <h2 class="section-title">Reward Every Visit</h2>
+          <p class="section-sub">AI-driven loyalty that remembers every preference, birthday, and favourite dish — making guests feel truly known.</p>
+          <div class="loyalty-tiers" id="loyaltyTiers"></div>
+        </div>
+        <div class="loyalty-card-showcase">
+          <div class="loyalty-card-3d" id="loyaltyCard">
+            <div class="lc-front">
+              <div class="lc-logo">✦ DineFlow</div>
+              <div class="lc-tier">GOLD MEMBER</div>
+              <div class="lc-points">
+                <span class="lc-pts-num">4,280</span>
+                <span class="lc-pts-label">Points</span>
+              </div>
+              <div class="lc-name">Alexandra Chen</div>
+              <div class="lc-progress-bar">
+                <div class="lc-progress-fill" style="width:71%"></div>
+              </div>
+              <div class="lc-to-next">720 pts to Platinum</div>
+              <div class="lc-chip"></div>
+            </div>
+          </div>
+          <div class="loyalty-perks" id="loyaltyPerks"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BILLING SECTION ===== -->
+  <section id="billing" class="billing-section">
+    <div class="container">
+      <div class="section-header centered">
+        <div class="section-tag">Smart Billing</div>
+        <h2 class="section-title">Frictionless Payments</h2>
+        <p class="section-sub">AI-generated itemized bills, split payments, loyalty redemption, and instant digital receipts.</p>
+      </div>
+      <div class="billing-demo" id="billingDemo">
+        <!-- Injected by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT / CTA SECTION ===== -->
+  <section id="contact" class="contact-section">
+    <div class="contact-bg">
+      <div class="contact-orb c-orb-1"></div>
+      <div class="contact-orb c-orb-2"></div>
+    </div>
+    <div class="container">
+      <div class="contact-layout">
+        <div class="contact-info">
+          <div class="section-tag">Get Started</div>
+          <h2 class="section-title">Ready to Transform Your Restaurant?</h2>
+          <p class="section-sub">Join 2,400+ restaurants already running on DineFlow. Start your free 30-day trial — no credit card required.</p>
+          <div class="contact-points">
+            <div class="cp-item"><span class="cp-check">✓</span><span>Onboarding in under 24 hours</span></div>
+            <div class="cp-item"><span class="cp-check">✓</span><span>Dedicated AI training on your menu</span></div>
+            <div class="cp-item"><span class="cp-check">✓</span><span>24/7 premium support</span></div>
+            <div class="cp-item"><span class="cp-check">✓</span><span>No long-term commitment required</span></div>
+          </div>
+          <div class="contact-social">
+            <a href="#" class="social-btn" id="twitterLink">𝕏 Twitter</a>
+            <a href="#" class="social-btn" id="linkedinLink">in LinkedIn</a>
+            <a href="#" class="social-btn" id="instagramLink">⊕ Instagram</a>
+          </div>
+        </div>
+        <div class="contact-form-card">
+          <h3 class="form-title">Start Free Trial</h3>
+          <form id="contactForm" class="contact-form">
+            <div class="form-group">
+              <label for="ctxName">Restaurant Name</label>
+              <input type="text" id="ctxName" placeholder="The Grand Bistro" required />
+            </div>
+            <div class="form-group">
+              <label for="ctxEmail">Business Email</label>
+              <input type="email" id="ctxEmail" placeholder="manager@restaurant.com" required />
+            </div>
+            <div class="form-group">
+              <label for="ctxPhone">Phone Number</label>
+              <input type="tel" id="ctxPhone" placeholder="+1 555 0100" />
+            </div>
+            <div class="form-group">
+              <label for="ctxSize">Restaurant Size</label>
+              <select id="ctxSize">
+                <option>Small (1-50 seats)</option>
+                <option selected>Medium (50-150 seats)</option>
+                <option>Large (150+ seats)</option>
+                <option>Multi-location Chain</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="ctxMessage">Tell us about your needs</label>
+              <textarea id="ctxMessage" placeholder="What challenges are you trying to solve?" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn-form-submit">
+              <span>Start Free Trial</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <div class="footer-logo">
+              <div class="logo-icon">✦</div>
+              <span class="logo-text">DineFlow</span>
+            </div>
+            <p class="footer-desc">The world's most intelligent restaurant management platform. Powered by AI. Built for hospitality.</p>
+            <div class="footer-badge-row">
+              <span class="footer-badge">SOC 2 Certified</span>
+              <span class="footer-badge">GDPR Ready</span>
+              <span class="footer-badge">99.9% Uptime</span>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Platform</h4>
+            <ul>
+              <li><a href="#menu">Digital Menu</a></li>
+              <li><a href="#reservation">Reservations</a></li>
+              <li><a href="#dashboard">Dashboard</a></li>
+              <li><a href="#analytics">Analytics</a></li>
+              <li><a href="#loyalty">Loyalty</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>AI Features</h4>
+            <ul>
+              <li><a href="#features">Demand Forecasting</a></li>
+              <li><a href="#features">Wait Prediction</a></li>
+              <li><a href="#features">Food Recommendations</a></li>
+              <li><a href="#features">Customer Insights</a></li>
+              <li><a href="#features">Kitchen Intelligence</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#contact">About Us</a></li>
+              <li><a href="#contact">Careers</a></li>
+              <li><a href="#contact">Blog</a></li>
+              <li><a href="#contact">Press</a></li>
+              <li><a href="#contact">Partners</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>© 2026 DineFlow Inc. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Settings</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== MODALS ===== -->
+  <div class="modal-overlay" id="reserveModal">
+    <div class="modal-content">
+      <button class="modal-close" id="closeReserveModal">✕</button>
+      <h3>Reservation Confirmed!</h3>
+      <div class="modal-icon">🎉</div>
+      <p>Your table has been reserved. A confirmation has been sent to your email along with a QR code for check-in.</p>
+      <div class="modal-details" id="modalDetails"></div>
+      <button class="btn-primary" id="modalOkBtn">Perfect, Thank You!</button>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="demoModal">
+    <div class="modal-content demo-modal-content">
+      <button class="modal-close" id="closeDemoModal">✕</button>
+      <h3>DineFlow Platform Demo</h3>
+      <div class="demo-video-placeholder">
+        <div class="demo-play-btn">▶</div>
+        <p>Interactive Demo</p>
+      </div>
+      <p class="demo-desc">Experience the full DineFlow platform with live data. Schedule a personalized demo with our team.</p>
+      <button class="btn-primary" id="scheduleDemoBtn">Schedule Live Demo</button>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="trialModal">
+    <div class="modal-content">
+      <button class="modal-close" id="closeTrialModal">✕</button>
+      <div class="modal-icon">🚀</div>
+      <h3>You're on the list!</h3>
+      <p>Thank you for your interest in DineFlow. Our team will reach out within 24 hours to set up your free trial.</p>
+      <button class="btn-primary" id="trialOkBtn">Awesome!</button>
+    </div>
+  </div>
+
+  <!-- ===== TOAST ===== -->
+  <div id="toast" class="toast"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
